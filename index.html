@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Pixel Art Creator</title>
+	<link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body class="light">
+	<div class="toolbar">
+		<button id="colorPicker" class="tool-button">Change Color</button>
+		<button id="themeToggle" class="tool-button">Toggle Light/Dark</button>
+	</div>
+	<div class="canvas">
+		<canvas id="canvas"></canvas>
+	</div>
+	<div class="modal color-picker">
+		<div class="modal-title"><h1>Color Picker</h1></div>
+		<div class="modal-body">
+			<div id="color"></div>
+			<div id="rgb-picker">
+				<h2>RGB:</h2>
+				<label> R:<input type="text" id="rgb-red" value="255"></label>
+				<label> G:<input type="text" id="rgb-green" value="255"></label>
+				<label> B:<input type="text" id="rgb-blue" value="255"></label>
+			</div>
+			<div id="hex-picker">
+				<h2>Hex:</h2>
+				<label> #<input type="text" id="hex" value="ffffff"></label>
+			</div>
+		</div>
+		<div class="modal-footer">
+			<button id="color-picker-close">Done</button>
+		</div>
+	</div>
+	<script src="scripts/creator.js"></script>
+</body>
+</html>
