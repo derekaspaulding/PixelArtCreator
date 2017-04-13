@@ -7,31 +7,45 @@
 </head>
 <body class="light">
 	<div class="toolbar">
-		<button id="colorPicker" class="tool-button">Change Color</button>
-		<button id="themeToggle" class="tool-button">Toggle Light/Dark</button>
+		<button id="color-picker-button" class="tool-button">Change Color</button>
+		<button id="theme-toggle-button" class="tool-button">Toggle Light/Dark</button>
+		<button id="undo-button" class="tool-button">Undo</button>
+		<button id="redo-button" class="tool-button">Redo</button>
+		<button id="paintbrush-tool-button" class="tool-button selected-tool">Pain Brush</button>
+		<button id="eraser-tool-button" class="tool-button">Eraser</button>
+		<button id="paintbucket-tool-button" class="tool-button">Paint Bucket</button>
 	</div>
 	<div class="canvas">
 		<canvas id="canvas"></canvas>
 	</div>
-	<div class="modal color-picker">
+	<div class="modal color-picker hidden" id="color-picker-modal">
 		<div class="modal-title"><h1>Color Picker</h1></div>
 		<div class="modal-body">
-			<div id="color"></div>
+			<div id="color-preview"></div>
 			<div id="rgb-picker">
 				<h2>RGB:</h2>
-				<label> R:<input type="text" id="rgb-red" value="255"></label>
-				<label> G:<input type="text" id="rgb-green" value="255"></label>
-				<label> B:<input type="text" id="rgb-blue" value="255"></label>
+				<label> R:<input type="number" min="0" max="255" id="rgb-input-red" value="255"></label>
+				<label> G:<input type="number" min="0" max="255" id="rgb-input-green" value="255"></label>
+				<label> B:<input type="number" min="0" max="255" id="rgb-input-blue" value="255"></label>
 			</div>
 			<div id="hex-picker">
 				<h2>Hex:</h2>
-				<label> #<input type="text" id="hex" value="ffffff"></label>
+				<label> #<input type="text" id="hex-input" value="ffffff"></label>
 			</div>
 		</div>
 		<div class="modal-footer">
-			<button id="color-picker-close">Done</button>
+			<button id="color-picker-select">Select Color</button>
 		</div>
 	</div>
-	<script src="scripts/creator.js"></script>
+
+	<!-- Include Scripts -->
+	<!-- Order shouldn't matter except controller needs to be last -->
+		<!-- TODO: Test speed difference by doing async loads in the head except controller -->
+	<script src="scripts/paintBrushTool.js"></script>
+	<script src="scripts/eraserTool.js"></script>
+	<script src="scripts/paintBucketTool.js"></script>
+	<script src="scripts/canvas.js"></script>
+	<script src="scripts/colorPicker.js"></script>
+	<script src="scripts/controller.js"></script>
 </body>
 </html>
